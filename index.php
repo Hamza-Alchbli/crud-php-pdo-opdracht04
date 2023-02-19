@@ -26,15 +26,15 @@
         <label>Soort behandeling:</label>
         <div class="checks">
             <label>
-                <input type="checkbox" name="treatmentType[]" value="manicure">
+                <input type="checkbox" name="treatmentType[]" value="Nagelbijt">
                 Nagelbijt arrangment (termijnbetaling mogelijk) &euro;180
             </label>
             <label>
-                <input type="checkbox" name="treatmentType[]" value="pedicure">
+                <input type="checkbox" name="treatmentType[]" value="Luxe manicure">
                 Luxe manicure (massage en handpakking) &euro;30,00
             </label>
             <label>
-                <input type="checkbox" name="treatmentType[]" value="nagelverlenging">
+                <input type="checkbox" name="treatmentType[]" value="Nagelreparatie">
                 Nagelreparatie per nagel (in eerste week gratis) &euro;5,00
             </label>
         </div>
