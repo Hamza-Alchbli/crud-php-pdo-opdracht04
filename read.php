@@ -55,6 +55,7 @@ if ($stmt->rowCount() > 0) {
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         // Output each row
+        // $colors = implode(", ", $_POST["nailColors"]);
         echo "<tr>
                 <td>{$row['id']}</td>
                 <td>{$row['nailColors']}</td>
