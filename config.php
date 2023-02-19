@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Vul hier de database gegevens in
 $servername = "localhost";
