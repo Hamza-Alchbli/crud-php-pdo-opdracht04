@@ -68,3 +68,82 @@ input[type="reset"]:hover {
     flex-direction: column;
     justify-content: center;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  color: #444;
+  border: 1px solid #f2f2f2;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr {
+  transition: 100ms ease-in-out;
+}
+tr:hover {
+  background-color: #ddd;
+}
+td a {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+td a.delete {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+td a.update {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+td a:hover {
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  th {
+    display: none;
+  }
+  
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  
+  td::before {
+    position: absolute;
+    left: 6px;
+    content: attr(data-label);
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
