@@ -33,9 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(":formDateTime", $formDateTime);
 
     // Voer de prepared statement uit om de gegevens in de database op te slaan
-    $stmt->execute();
+    $result = $stmt->execute();
 
-    // Bevestig aan de gebruiker dat de afspraak is opgeslagen
-    echo "Bedankt voor uw afspraak! Uw gegevens zijn opgeslagen.";
+    if ($result) {
+        echo "Er is een nieuw record gemaakt in de database.";
+        header('Refresh:2; url=read.php');
+    } else {
+        echo "Er is geen nieuw record gemaakt.";
+        header('Refresh:2; url=read.php');
+    }
 }
-?>
