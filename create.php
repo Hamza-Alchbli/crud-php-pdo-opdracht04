@@ -7,18 +7,29 @@ try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // zet de PDO error mode naar exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 
 // Check of het formulier is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verzamel de gegevens van het formulier
-    $nailColors =  implode(", ", $_POST["nailColors"]);;
+    $nailColors =  implode(", ", $_POST["nailColors"]);
     $telephone = $_POST["telephone"];
+    $pattern = "/^\+31\s6\s\d{3}\s\d{2}\s\d{2}$/"; // The pattern to match
+
+    if (!preg_match($pattern, $telephone)) {
+        echo "Not a valid pattern";
+        header('Refresh:2; url=index.php');
+        exit();
+    }
     $email = $_POST["email"];
     $appointmentDateTime = $_POST["appointmentDateTime"];
-    $treatmentType = implode(", ", $_POST["treatmentType"]);
+    if (isset($_POST['treatmentType'])) {
+        $treatmentType = implode(", ", $_POST['treatmentType']);
+    } else {
+        $treatmentType = '';
+    }
     $formDateTime = date('Y-m-d H:i:s');
 
     // Bereid de SQL-query voor met behulp van prepared statements
