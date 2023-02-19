@@ -45,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Voer de prepared statement uit om de gegevens in de database op te slaan
     $result = $stmt->execute();
-
     if ($result) {
         echo "Er is een nieuw record gemaakt in de database.";
         header('Refresh:2; url=read.php');
